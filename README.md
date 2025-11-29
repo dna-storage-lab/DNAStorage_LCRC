@@ -31,8 +31,8 @@ The source data are available on the Sequence Read Archive (SRA) under accession
 3. Medium-scale low-cost DNA pools
    3.1 LCS-Pool-300K + ONT (HAC base calling) + RT, Nanopore sequencing data for real-time readout verification
 4. Large DNA fragment
-   5.1 HFS-L-DNA + NGS (PE150)
-   5.2 HFS-D-L-DNA-5h (Accelerated aging sample) + NGS (PE150)
+   4.1 HFS-L-DNA + NGS (PE150)
+   4.2 HFS-D-L-DNA-5h (Accelerated aging sample) + NGS (PE150)
 
 ## Requirements
 
@@ -270,3 +270,4 @@ Decoder_RealTime ${out_dec} ${log_dec} ${chipA_fastq_prefix} ${chipB_fastq_prefi
 - _\${mode}_: Running mode (use 0 for the correlation-based scheme and 1 for the alignment-based scheme).
 - _\${base_threshold}_: Threshold of base available ratio (default value for HAC base-calling mode: 0.90).
 - _\${batch_size}_: Read number per FASTQ file (default value: 4000).
+
