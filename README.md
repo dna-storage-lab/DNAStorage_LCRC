@@ -3,7 +3,7 @@
 The software implements an accompanying indexing and progressive recovery framework with specialized long composite ranging codes (LCRCs) for massive DNA data storage. The LCRC is constructed from a limited number of short component codes (SCCs) of similar lengths and partitioned to index massive DNA strands and to enable progressive error correction using fast correlation and robust alignment. The software is implemented in C/C++ and runs on Linux.
 The software supports the following core functions:
 
-1. Decoding for data storage with oligo pools of different scales (small-scale, medium-scale).
+1. Decoding for data storage with oligo pools of different scales (small-scale and medium-scale).
 2. Rapid readout from short nanopore reads with read-by-read decoding.
 
 <div align="center">
@@ -21,18 +21,18 @@ The software supports the following core functions:
 The source data are available on the Sequence Read Archive (SRA) under accession nos. [SRR33980957](https://www.ncbi.nlm.nih.gov/sra/?term=SRR33980957)–[SRR33980963](https://www.ncbi.nlm.nih.gov/sra/?term=SRR33980963) (SRA Project [PRJNA1371011](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1371011)), including the Sequencing data generated under different synthesis/sequencing conditions (in FASTQ format):
 
 1. Small-scale high-fidelity DNA pools
-   1.1 HFS-Pool-11.7K + NGS (PE150)
-   1.2 HFS-Pool-11.7K + ONT (FAST base calling)
-   1.3 HFS-Pool-11.7K + ONT (FAST base calling) + RT, Nanopore sequencing data for real-time readout verification
+   - 1.1 HFS-Pool-11.7K + NGS (PE150)
+   - 1.2 HFS-Pool-11.7K + ONT (FAST base calling)
+   - 1.3 HFS-Pool-11.7K + ONT (FAST base calling) + RT, Nanopore sequencing data for real-time readout verification
 2. Small-scale low-cost DNA pools
-   2.1 LCS-Pool-11.7K + NGS (PE150)  
-   2.2 LCS-Pool-11.7K + ONT (SUP base calling)
-   2.3 LCS-D-Pool-11.7K (Accelerated aging pool) + NGS (PE150)
+   - 2.1 LCS-Pool-11.7K + NGS (PE150)  
+   - 2.2 LCS-Pool-11.7K + ONT (SUP base calling)
+   - 2.3 LCS-D-Pool-11.7K (Accelerated aging pool) + NGS (PE150)
 3. Medium-scale low-cost DNA pools
-   3.1 LCS-Pool-300K + ONT (HAC base calling) + RT, Nanopore sequencing data for real-time readout verification
+   - 3.1 LCS-Pool-300K + ONT (HAC base calling) + RT, Nanopore sequencing data for real-time readout verification
 4. Large DNA fragment
-   4.1 HFS-L-DNA + NGS (PE150)
-   4.2 HFS-D-L-DNA-5h (Accelerated aging sample) + NGS (PE150)
+   - 4.1 HFS-L-DNA + NGS (PE150)
+   - 4.2 HFS-D-L-DNA-5h (Accelerated aging sample) + NGS (PE150)
 
 ## Requirements
 
@@ -270,5 +270,6 @@ Decoder_RealTime ${out_dec} ${log_dec} ${chipA_fastq_prefix} ${chipB_fastq_prefi
 - _\${mode}_: Running mode (use 0 for the correlation-based scheme and 1 for the alignment-based scheme).
 - _\${base_threshold}_: Threshold of base available ratio (default value for HAC base-calling mode: 0.90).
 - _\${batch_size}_: Read number per FASTQ file (default value: 4000).
+
 
 
