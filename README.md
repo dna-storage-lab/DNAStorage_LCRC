@@ -13,12 +13,12 @@ The software supports the following core functions:
 - [Source Data](#Source-Data)
 - [Requirements](#Requirements)
 - [Build](#Build)
-- [Qucik Start](#Qucik-Start)
+- [Quick Start](#Quick-Start)
 - [Usage](#Usage)
 
 ## Source Data
 
-The source data are available on the Sequence Read Archive (SRA) under accession nos. [SRR33980957](https://www.ncbi.nlm.nih.gov/sra/?term=SRR33980957)–[SRR33980963](https://www.ncbi.nlm.nih.gov/sra/?term=SRR33980963) (SRA Project [PRJNA1276869](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1276869)), including the Sequencing data generated under different synthesis/sequencing conditions (in FASTQ format):
+The source data are available on the Sequence Read Archive (SRA) under accession nos. [SRR33980957](https://www.ncbi.nlm.nih.gov/sra/?term=SRR33980957)–[SRR33980963](https://www.ncbi.nlm.nih.gov/sra/?term=SRR33980963) (SRA Project [PRJNA1371011](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1371011)), including the Sequencing data generated under different synthesis/sequencing conditions (in FASTQ format):
 
 1. Small-scale high-fidelity DNA pools
    1.1 HFS-Pool-11.7K + NGS (PE150)
@@ -69,7 +69,7 @@ cmake .. && \
 make
 ```
 
-## Qucik Start
+## Quick Start
 
 The decoding workflows for data storage using oligo pools of three distinct scales—small-scale and medium-scale—are provided.
 
@@ -77,7 +77,7 @@ The decoding workflows for data storage using oligo pools of three distinct scal
 
 #### Function 1: Decoding for data storage with small-scale oligo pools
 
-For convenience of evaluation, users can run the integrated shell scripts directly.
+For the convenience of evaluation, users can run the integrated shell scripts directly.
 
 Navigate to the **_LCRC_SmallScale_** folder.
 Decompress the sequencing data generated after paired-end read merging (HFS-Pool-11.7K + NGS):
@@ -106,13 +106,13 @@ gzip -d fastq/HFS_Pool_11.7K_ONT_FAST_RT.tar.gz
 ./run_decoding_online.sh ./fastq 0.938
 ```
 
-Note: 0.938 is the threshold of base available ratio for offline test. In the real-time verification experiment, threshold is set to 0.955.
+Note: 0.938 is the threshold of the base available ratio for the offline test. In the real-time verification experiment, the threshold is set to 0.955.
 
 ### Ⅱ. Medium-scale Oligo Pool
 
 #### Function 1: Decoding for data storage with medium-scale oligo pools
 
-For convenience of evaluation, users can run the integrated shell scripts directly.
+For the convenience of evaluation, users can run the integrated shell scripts directly.
 
 Navigate to the **_LCRC_MediumScale_** folder.
 
@@ -142,14 +142,14 @@ Run the read-by-read decoding process (alignment-based):
 ./run_decoding_realTime.sh ${fastq_folder} {threshold}
 ```
 
-- _\${fastq}_: Folder stroing the FASTQ files (4000 reads per FASTQ).
+- _\${fastq}_: Folder storing the FASTQ files (4000 reads per FASTQ).
 - _\${threshold}_: Correlation threshold (default value: 0.8).
 
-Note: In the real-time verification experiment (HAC basecalling mode), correlation threshold is set to 0.90.
+Note: In the real-time verification experiment (HAC basecalling mode), the correlation threshold is set to 0.90.
 
 ## Usage
 
-Detailed instructions for calling the decoding programs of different scale datasets are as follows.
+Detailed instructions for calling the decoding programs of different-scale datasets are as follows.
 
 ### I. Small-scale Oligo Pool
 
@@ -174,10 +174,10 @@ mkdir ${out_dec}
 # Split the FASTQ into subfiles to facilitate multithreading
 ./run_split_fastq.sh ${PEmerged_fastq} ${thread} ${out_dec}/subfastq
 
-# To perform LCRC alignment, users may alternatively run the following command to build index for BWA (optional step):
+# To perform LCRC alignment, users may alternatively run the following command to build an index for BWA (optional step):
 IdentificationCons_OligoPool ${out_dec} ${out_dec}/subfastq ${out_dec}/consensus_cw.bin ${thread} ${threshold} ${mode} 1
 
-# Run primer identification, SCC correlation or LCRC alignment, and bit-wise majority voting
+# Run primer identification, SCC correlation, or LCRC alignment, and bit-wise majority voting
 IdentificationCons_OligoPool ${out_dec} ${out_dec}/subfastq ${out_dec}/consensus_cw.bin ${thread} ${threshold} ${mode} 0
 
 # Clean off
@@ -192,7 +192,7 @@ rm ${out_dec}/subfastq*
 
 #### 2. Read-by-Read Decoding During Nanopore Sequencing
 
-Once the sequencing data begin streaming, read-by-read decoding is performed concurrently after every 100 reads. The decoding process involves primer identification, LCRC alignment, bit-wise majority voting, and error correction. An offline verification program is provided.
+Once the sequencing data begins streaming, read-by-read decoding is performed concurrently after every 100 reads. The decoding process involves primer identification, LCRC alignment, bit-wise majority voting, and error correction. An offline verification program is provided.
 
 ```
 export PATH=bin:$PATH
@@ -226,13 +226,13 @@ Run the decoding process step by step:
 # Create work directory
 mkdir ${out_dec}
 
-# To perform LCRC alignment, users may alternatively run the following command to build index for BWA (optional step):
+# To perform LCRC alignment, users may alternatively run the following command to build an index for BWA (optional step):
 Gen_LCRC
 
 # Split the FASTQ into subfiles to facilitate multithreading
 split -a5 --additional-suffix=.fastq -l $lines_per_file -d $src_fastq
 
-# Run primer identification, SCC correlation or LCRC alignment, bit-wise majority voting, and errro correction
+# Run primer identification, SCC correlation, or LCRC alignment, bit-wise majority voting, and error correction
 Decoder_OligoPool ${out_dec} ${log_dec} ${folder_subfastq} ${thread} ${threshold} ${mode} 0
 
 ```
@@ -248,7 +248,7 @@ Decoder_OligoPool ${out_dec} ${log_dec} ${folder_subfastq} ${thread} ${threshold
 
 #### 2. Read-by-Read Decoding During Nanopore Sequencing
 
-Once the sequencing data begin streaming, read-by-read decoding is performed concurrently after every 4000\*4 reads. The decoding process involves primer identification, LCRC alignment, bit-wise majority voting, and error correction. An offline verification program is provided.
+Once the sequencing data begins streaming, read-by-read decoding is performed concurrently after every 4000\*4 reads. The decoding process involves primer identification, LCRC alignment, bit-wise majority voting, and error correction. An offline verification program is provided.
 
 ```
 export PATH=bin:$PATH
@@ -270,4 +270,5 @@ Decoder_RealTime ${out_dec} ${log_dec} ${chipA_fastq_prefix} ${chipB_fastq_prefi
 - _\${mode}_: Running mode (use 0 for the correlation-based scheme and 1 for the alignment-based scheme).
 - _\${base_threshold}_: Threshold of base available ratio (default value for HAC base-calling mode: 0.90).
 - _\${batch_size}_: Read number per FASTQ file (default value: 4000).
+
 
