@@ -18,7 +18,7 @@ The software supports the following core functions:
 
 ## Source Data
 
-The source data are available on the Sequence Read Archive (SRA) under accession nos. [SRR33980957](https://www.ncbi.nlm.nih.gov/sra/?term=SRR33980957)–[SRR33980963](https://www.ncbi.nlm.nih.gov/sra/?term=SRR33980963) (SRA Project [PRJNA1371011](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1371011)), including the Sequencing data generated under different synthesis/sequencing conditions (in FASTQ format):
+The source data are available on the Sequence Read Archive (SRA) under accession no. [PRJNA1371011](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1371011), including the Sequencing data generated under different synthesis/sequencing conditions (in FASTQ format):
 
 1. Small-scale high-fidelity DNA pools
    - 1.1 HFS-Pool-11.7K + NGS (PE150)
@@ -270,6 +270,7 @@ Decoder_RealTime ${out_dec} ${log_dec} ${chipA_fastq_prefix} ${chipB_fastq_prefi
 - _\${mode}_: Running mode (use 0 for the correlation-based scheme and 1 for the alignment-based scheme).
 - _\${base_threshold}_: Threshold of base available ratio (default value for HAC base-calling mode: 0.90).
 - _\${batch_size}_: Read number per FASTQ file (default value: 4000).
+
 
 
 
