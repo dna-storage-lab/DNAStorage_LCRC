@@ -739,7 +739,10 @@ void *pipelineWorker(void *args)
             }
             else
             {
-                end_loc = read_len - 1;
+                if (read_len - start_loc + 1 > 160)
+                    end_loc = start_loc + 160 - 1;
+                else
+                    end_loc = read_len - 1;
             }
             edlibFreeAlignResult(align_rslt_right1);
         }
@@ -770,6 +773,9 @@ void *pipelineWorker(void *args)
             if (minED_r_op <= threshold_primer * PRIMER_LEN)
             {
                 primer_valid_flag = 1;
+
+                if (end_loc >= 160)
+                    start_loc = end_loc - 160 + 1;
             }
             for (int i = 0; i < 2; ++i)
                 edlibFreeAlignResult(align_rslt_right[i]);
@@ -779,7 +785,7 @@ void *pipelineWorker(void *args)
 
         if (primer_valid_flag)
         {
-            payload_len = end_loc - start_loc;
+            payload_len = end_loc - start_loc + 1;
             if (payload_len <= 0)
                 continue;
             tot_base += payload_len;
