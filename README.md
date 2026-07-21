@@ -15,6 +15,8 @@ The software supports the following core functions:
 - [Build](#Build)
 - [Quick Start](#Quick-Start)
 - [Usage](#Usage)
+- [Citation](#Citation)
+
 
 ## Source Data
 
@@ -272,5 +274,20 @@ Decoder_RealTime ${out_dec} ${log_dec} ${chipA_fastq_prefix} ${chipB_fastq_prefi
 - _\${batch_size}_: Read number per FASTQ file (default value: 4000).
 
 
+## Citation
+If you find this repository useful or use it in your research, please consider citing the following paper:
 
+[From spacecraft ranging to massive DNA data storage: Composite ranging codes as indices and error correction references](https://www.science.org/doi/10.1126/sciadv.aec1469)
 
+```
+@article{Zhang2026,
+   author = {Zhang, Yuxin and Qin, Rui and Ge, Qi and Guo, Quan and Chen, Weigang},
+   title = {From spacecraft ranging to massive DNA data storage: Composite ranging codes as indices and error correction references},
+   journal = {Science Advances},
+   volume = {12},
+   number = {16},
+   pages = {eaec1469},
+   year = {2026}
+   DOI = {10.1126/sciadv.aec1469}
+}
+```
