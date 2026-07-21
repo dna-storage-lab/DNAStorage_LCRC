@@ -921,8 +921,9 @@ void correlation_alignment(WorkerHandler *worker_hdlr, int tid, const char *read
             }
             else
             {
-                end_loc = start_loc + 160 - 1;
-                if (read_len < 160)
+                if (read_len - start_loc + 1 > 160)
+                    end_loc = start_loc + 160 - 1;
+                else
                     end_loc = read_len - 1;
             }
             edlibFreeAlignResult(align_rslt_right1);
