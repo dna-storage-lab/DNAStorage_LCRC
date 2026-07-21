@@ -6,6 +6,12 @@ The software supports the following core functions:
 1. Decoding for data storage with oligo pools of different scales (small-scale and medium-scale).
 2. Rapid readout from short nanopore reads with read-by-read decoding.
 
+> This repository accompanies the paper published in [Science Advances](https://www.science.org/doi/10.1126/sciadv.aec1469).
+> 
+> Y. Zhang, R. Qin, Q. Ge, Q. Guo, W. Chen, From spacecraft ranging to massive DNA data storage: Composite ranging codes as indices and error correction references. *Sci. Adv.* **12**, eaec1469 (2026).
+> https://www.science.org/doi/10.1126/sciadv.aec1469
+> 
+
 <div align="center">
 <img src="intro.png" alt="intro" width="800" />
 </div>
